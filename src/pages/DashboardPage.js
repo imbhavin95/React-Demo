@@ -7,9 +7,7 @@ import TextValidator from './../validators/TextValidator';
 import CheckboxValidator from './../validators/CheckboxValidator';
 import logo from './../logo.svg';
 import Header from './../include/header.js';
-import { Redirect, BrowserRouter, withRouter } from 'react-router-dom';
-import DashboardPage from "./../pages/DashboardPage";
-
+import { Redirect, BrowserRouter } from 'react-router-dom';
 
 const styles = {
     block: {
@@ -20,7 +18,7 @@ const styles = {
     },
 };
 
-class RegistrationForm extends React.Component {
+class DashboardPage extends React.Component {
     constructor(props) {
         super(props);
 
@@ -64,15 +62,10 @@ class RegistrationForm extends React.Component {
         }).then(function(json) {
             if(json.status === 'success'){
                 console.log(json.status);
-                //this.props.history.push('/dashboard')
-
                 ReactDOM.render(
-                    <section>
                     <BrowserRouter>
                         <Redirect to='/dashboard' />
-                    </BrowserRouter>
-                        <DashboardPage />
-                    </section>,
+                    </BrowserRouter>,
                     document.getElementById('root')
                 );
             }else{
@@ -100,54 +93,7 @@ class RegistrationForm extends React.Component {
                     >
                         <div className="login-container">
                             <img src={logo} className="App-logo" alt="logo" />
-                            <TextValidator
-                                hintText="First Name"
-                                onChange={this.handleChange}
-                                name="firstname"
-                                value={formData.firstname}
-                                validators={['required']}
-                                errorMessages={['This field is required']}
-                                fullWidth={true}
-                            />
-                            <TextValidator
-                                hintText="Last Name"
-                                onChange={this.handleChange}
-                                name="lastname"
-                                value={formData.lastname}
-                                validators={['required']}
-                                errorMessages={['This field is required']}
-                                fullWidth={true}
-                            />
-                            <TextValidator
-                                hintText="Email"
-                                onChange={this.handleChange}
-                                name="email"
-                                value={formData.email}
-                                validators={['required', 'isEmail']}
-                                errorMessages={['This field is required', 'Email is not valid']}
-                                fullWidth={true}
-                            />
-                            <TextValidator
-                                hintText="Password"
-                                onChange={this.handleChange}
-                                name="password"
-                                value={formData.password}
-                                validators={['required']}
-                                errorMessages={['This field is required']}
-                                fullWidth={true}
-                                type="password"
-                            />
-                            <br />
-                            <CheckboxValidator
-                                onChange={this.handleChangeCheckbox}
-                                value={formData.terms}
-                                name="terms"
-                                className="check-custom"
-                                //validators={['required']}
-                                label="Please accept Terms & Condition"
-                                style={styles.checkbox}
-                                errorMessages={['This field is required']}
-                            />
+                            Dashboard Page
                             <RaisedButton
                                 type="submit"
                                 label={
@@ -165,4 +111,4 @@ class RegistrationForm extends React.Component {
     }
 }
 
-export default RegistrationForm;
+export default DashboardPage;
