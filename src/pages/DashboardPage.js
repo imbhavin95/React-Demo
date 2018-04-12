@@ -3,20 +3,10 @@ import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import { ValidatorForm } from 'react-form-validator-core';
-import TextValidator from './../validators/TextValidator';
-import CheckboxValidator from './../validators/CheckboxValidator';
 import logo from './../logo.svg';
 import Header from './../include/header.js';
 import { Redirect, BrowserRouter } from 'react-router-dom';
 
-const styles = {
-    block: {
-        maxWidth: 250,
-    },
-    checkbox: {
-        marginBottom: 16,
-    },
-};
 
 class DashboardPage extends React.Component {
     constructor(props) {
@@ -82,7 +72,7 @@ class DashboardPage extends React.Component {
     }
 
     render() {
-        const { formData, submitted } = this.state;
+        const { submitted } = this.state;
         return (
             <MuiThemeProvider>
                 <div>

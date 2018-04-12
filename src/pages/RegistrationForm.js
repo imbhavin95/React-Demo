@@ -7,7 +7,7 @@ import TextValidator from './../validators/TextValidator';
 import CheckboxValidator from './../validators/CheckboxValidator';
 import logo from './../logo.svg';
 import Header from './../include/header.js';
-import { Redirect, BrowserRouter, withRouter } from 'react-router-dom';
+import { Redirect, BrowserRouter } from 'react-router-dom';
 import DashboardPage from "./../pages/DashboardPage";
 
 
